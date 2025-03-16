@@ -22,10 +22,21 @@ function addRiskItem(riskName, riskLevel, department) {
     dep.textContent = `Department: ${department}`;
     newCard.appendChild(dep);
 
+// Task 3: Removing Risk Items
+
+const resolveButton = document.createElement("button");
+resolveButton.textContent = `Resolve`;
+newCard.appendChild(resolveButton);
+
+// On clicking the resolve button we will remove the risk card associated with it from the riskContainer div
+
+resolveButton.addEventListener("click", function() {
+    riskSelector.removeChild(newCard);
+});
     riskSelector.appendChild(newCard); // appending newCard with all its changes to riskSelector
 };
 
-addRiskItem("Bad Ads", "Low", "Advertising");
+addRiskItem("Market Fluctuations", "High", "Finance");
 
 const submitButton = document.getElementById("buttonId"); // links the submit button to javascript
 
