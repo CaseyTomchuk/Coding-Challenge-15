@@ -57,8 +57,14 @@ else {
     newCard.style.backgroundColor = 'gray';
 }
 
+// Task 6: Handling Event Propagation
+
+newCard.addEventListener("click", function(endEvent) {
+    endEvent.stopPropagation();
+});
+
 // appending newCard with all its changes to riskSelector
-    riskSelector.appendChild(newCard);
+riskSelector.appendChild(newCard);
 };
 
 addRiskItem("Cybersecurity Threat", "High", "IT");
