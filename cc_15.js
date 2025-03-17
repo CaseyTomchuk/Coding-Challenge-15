@@ -76,3 +76,39 @@ submitButton.addEventListener("click", function() {
 
     addRiskItem(riskNameSelector, riskLevelSelector, departmentNameSelector);
 });
+
+// Task 5: Implementing Bulk Updates
+
+const increaseButton = document.createElement("button");
+increaseButton.textContent = `Increase Risk Levels`;
+
+increaseButton.addEventListener("click", function() {
+
+    const cardSelector = document.querySelectorAll(".riskCard");
+    
+    cardSelector.forEach(card => {
+
+        const paragraphs = card.querySelectorAll("p"); // Selecting all paragraphs
+        
+// Then narrowing down to only risk level paragraphs 
+        paragraphs.forEach(paragraph => {
+            if (paragraph.textContent.includes("Risk Level:")) {
+                const currentText = paragraph.textContent;
+                
+// Updating the text using if statements, as well as doing the reformatting here since the color wont update otherwise  
+
+                if (currentText.includes("Low")) {
+                    paragraph.textContent = "Risk Level: Medium";
+                    card.style.backgroundColor = "yellow";
+                } 
+                else if (currentText.includes("Medium")) {
+                    paragraph.textContent = "Risk Level: High";
+                    card.style.backgroundColor = "red";
+                }
+            }
+        });
+    });
+});
+
+// Appending the button to the risk dashboard
+riskSelector.appendChild(increaseButton);
